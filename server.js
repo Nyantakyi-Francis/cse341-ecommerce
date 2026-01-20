@@ -16,7 +16,7 @@ let swaggerDocument = require('./swagger-output.json');
 
 // Override host based on environment
 if (process.env.NODE_ENV === 'production' || process.env.PORT) {
-  swaggerDocument.host = 'https://cse341-ecommerce-uruy.onrender.com/api-docs';
+  swaggerDocument.host = 'cse341-ecommerce-uruy.onrender.com/api-docs';
   swaggerDocument.schemes = ['https'];
 } else {
   swaggerDocument.host = 'localhost:3000';

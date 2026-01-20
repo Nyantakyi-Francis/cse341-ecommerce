@@ -6,8 +6,8 @@ const doc = {
     description: 'API for managing products and categories',
     version: '1.0.0'
   },
-  host: 'localhost:3000',
-  schemes: ['http']
+  host: 'cse341-ecommerce-uruy.onrender.com',  
+  schemes: ['https']
 };
 
 const outputFile = './swagger-output.json';
