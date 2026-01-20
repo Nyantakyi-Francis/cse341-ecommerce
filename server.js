@@ -16,7 +16,7 @@ let swaggerDocument = require('./swagger-output.json');
 
 // Override host based on environment
 if (process.env.NODE_ENV === 'production' || process.env.PORT) {
-  swaggerDocument.host = 'YOUR_RENDER_URL_HERE.onrender.com';
+  swaggerDocument.host = 'https://cse341-ecommerce-uruy.onrender.com/api-docs/';
   swaggerDocument.schemes = ['https'];
 } else {
   swaggerDocument.host = 'localhost:3000';
@@ -32,10 +32,12 @@ app.use('/', require('./routes'));
 // Initialize database and start server
 mongodb.initDb((err) => {
   if (err) {
-    console.log('Error connecting to database:', err);
+    console.log('Error connecting to your database:', err);
   } else {
     app.listen(port, () => {
       console.log(`Connected to database and server is running on port ${port}`);
     });
   }
+
 });
+
