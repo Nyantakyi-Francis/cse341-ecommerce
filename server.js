@@ -11,19 +11,10 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Dynamic Swagger setup
-let swaggerDocument = require('./swagger-output.json');
 
-// Override host based on environment
-if (process.env.NODE_ENV === 'production' || process.env.PORT) {
-  swaggerDocument.host = 'cse341-ecommerce-uruy.onrender.com/api-docs';
-  swaggerDocument.schemes = ['https'];
-} else {
-  swaggerDocument.host = 'localhost:3000';
-  swaggerDocument.schemes = ['http'];
-}
+const swaggerDocument = require('./swagger-output.json');
 
-// Swagger documentation route
+
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Routes
@@ -32,12 +23,10 @@ app.use('/', require('./routes'));
 // Initialize database and start server
 mongodb.initDb((err) => {
   if (err) {
-    console.log('Error connecting to your database:', err);
+    console.log('Error connecting to database:', err);
   } else {
     app.listen(port, () => {
       console.log(`Connected to database and server is running on port ${port}`);
     });
   }
-
 });
-
