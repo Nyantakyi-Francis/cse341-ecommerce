@@ -1,6 +1,7 @@
 const swaggerAutogen = require('swagger-autogen')();
 
-const isProduction = process.env.NODE_ENV === 'production';
+// Check if we're generating for production or local
+const isProduction = process.argv.includes('--production');
 
 const doc = {
   info: {

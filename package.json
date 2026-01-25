@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "start": "node server.js",
+"scripts": {
+    "start": "NODE_ENV=production node server.js",
     "dev": "nodemon server.js",
     "swagger": "node swagger.js",
+    "swagger:prod": "node swagger.js --production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
