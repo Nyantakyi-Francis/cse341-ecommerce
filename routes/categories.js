@@ -1,20 +1,24 @@
 const express = require('express');
 const router = express.Router();
 const categoriesController = require('../controllers/categories');
+const { isAuthenticated } = require('../middleware/auth');
 
-// GET all categories
+// #swagger.tags = ['Categories']
 router.get('/', categoriesController.getAll);
 
-// GET single category by ID
+// #swagger.tags = ['Categories']
 router.get('/:id', categoriesController.getSingle);
 
-// POST create new category
-router.post('/', categoriesController.createCategory);
+// #swagger.tags = ['Categories']
+// #swagger.security = [{ "oauth2": [] }]
+router.post('/', isAuthenticated, categoriesController.createCategory);
 
-// PUT update category by ID
-router.put('/:id', categoriesController.updateCategory);
+// #swagger.tags = ['Categories']
+// #swagger.security = [{ "oauth2": [] }]
+router.put('/:id', isAuthenticated, categoriesController.updateCategory);
 
-// DELETE category by ID
-router.delete('/:id', categoriesController.deleteCategory);
+// #swagger.tags = ['Categories']
+// #swagger.security = [{ "oauth2": [] }]
+router.delete('/:id', isAuthenticated, categoriesController.deleteCategory);
 
 module.exports = router;

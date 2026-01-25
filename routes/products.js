@@ -1,20 +1,24 @@
 const express = require('express');
 const router = express.Router();
 const productsController = require('../controllers/products');
+const { isAuthenticated } = require('../middleware/auth');
 
-// GET all products
+// #swagger.tags = ['Products']
 router.get('/', productsController.getAll);
 
-// GET single product by ID
+// #swagger.tags = ['Products']
 router.get('/:id', productsController.getSingle);
 
-// POST create new product
-router.post('/', productsController.createProduct);
+// #swagger.tags = ['Products']
+// #swagger.security = [{ "oauth2": [] }]
+router.post('/', isAuthenticated, productsController.createProduct);
 
-// PUT update product by ID
-router.put('/:id', productsController.updateProduct);
+// #swagger.tags = ['Products']
+// #swagger.security = [{ "oauth2": [] }]
+router.put('/:id', isAuthenticated, productsController.updateProduct);
 
-// DELETE product by ID
-router.delete('/:id', productsController.deleteProduct);
+// #swagger.tags = ['Products']
+// #swagger.security = [{ "oauth2": [] }]
+router.delete('/:id', isAuthenticated, productsController.deleteProduct);
 
 module.exports = router;
