@@ -2,13 +2,13 @@
   "swagger": "2.0",
   "info": {
     "title": "E-Commerce API",
-    "description": "API for managing products and categories with OAuth authentication.\n    \n**AUTHENTICATION INSTRUCTIONS:**\n1. To test protected routes (POST, PUT, DELETE), you must first log in\n2. Open a new tab and go to: http://localhost:3000/auth/login\n3. Authorize with GitHub\n4. Return to this Swagger page and test the protected routes\n5. To log out, visit: http://localhost:3000/auth/logout\n\n**PUBLIC ROUTES** (no login required):\n- GET /products\n- GET /products/{id}  \n- GET /categories\n- GET /categories/{id}\n\n**PROTECTED ROUTES** (login required):\n- POST /products\n- PUT /products/{id}\n- DELETE /products/{id}\n- POST /categories\n- PUT /categories/{id}\n- DELETE /categories/{id}",
+    "description": "API for managing products and categories with OAuth authentication.\n    \n**AUTHENTICATION INSTRUCTIONS:**\n1. To test protected routes (POST, PUT, DELETE), you must first log in\n2. Open a new tab and go to: https://cse341-ecommerce-uruy.onrender.com/auth/login\n3. Authorize with GitHub\n4. Return to this Swagger page and test the protected routes\n5. To log out, visit: https://cse341-ecommerce-uruy.onrender.com/auth/logout\n\n**PUBLIC ROUTES** (no login required):\n- GET /products - Get all products\n- GET /products/{id} - Get single product\n- GET /categories - Get all categories\n- GET /categories/{id} - Get single category\n\n**PROTECTED ROUTES** (login required):\n- POST /products - Create new product\n- PUT /products/{id} - Update product\n- DELETE /products/{id} - Delete product\n- POST /categories - Create new category\n- PUT /categories/{id} - Update category\n- DELETE /categories/{id} - Delete category",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "cse341-ecommerce-uruy.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http"
+    "https"
   ],
   "paths": {
     "/products/": {
